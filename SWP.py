@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 
 
-bot = telebot.TeleBot('')
+bot = telebot.TeleBot('6155094584:AAE5isPBEmZ1quEGKICR2h5y7bZ9YGhN2sM')
 
 emoji = {'correct': '\U00002705', 'wrong': '\U0000274C', 'back': '\U00002B05', }
 
