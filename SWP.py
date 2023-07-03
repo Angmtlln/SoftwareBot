@@ -16,7 +16,7 @@ def bot_start(message: types.Message):
     markup1.add(button1, button2, button3)
     url_button = types.InlineKeyboardButton(text="Авторизоваться на сайте", url="https://sport.innopolis.university")
     bot.send_message(message.chat.id,
-                     text='\tWelcome to InnoSportChallengesBot. To register you on Innopolis Sport cite, please write your email',
+                     text='\tWelcome to InnoSportChallengesBot. To register you on Innopolis Sport website, please write your email',
                      reply_markup=markup1)
 
 
@@ -55,7 +55,7 @@ def Buttom(message):
         url_button = types.InlineKeyboardButton(text="Авторизоваться на сайте",
                                                 url="https://sport.innopolis.university")
         bot.send_message(message.chat.id,
-                         text='\tWelcome to InnoSportChallengesBot. To register you on Innopolis Sport cite, please write your email',
+                         text='\tWelcome to InnoSportChallengesBot. To register you on Innopolis Sport website, please write your email',
                          reply_markup=markup1)
 
     elif message.text == f'{emoji["back"]} Back':
@@ -67,7 +67,7 @@ def Buttom(message):
         url_button = types.InlineKeyboardButton(text="Авторизоваться на сайте",
                                                 url="https://sport.innopolis.university")
         bot.send_message(message.chat.id,
-                         text='\tWelcome to InnoSportChallengesBot. To register you on Innopolis Sport cite, please write your email',
+                         text='\tWelcome to InnoSportChallengesBot. To register you on Innopolis Sport website, please write your email',
                          reply_markup=markup1)
     elif "@innopolis.university" in message.text:
         markup1 = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
