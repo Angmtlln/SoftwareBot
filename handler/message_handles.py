@@ -22,6 +22,7 @@ def start_page(message: Message):
         bot.send_message(message.chat.id, texts.About_Button, reply_markup=keyboards.default_markup)
     if message.text == 'Help':
         bot.send_message(message.chat.id, texts.Help_Button, reply_markup=keyboards.default_markup)
+        bot.send_message(message.chat.id, 'Merch from the InnoStore', reply_markup=keyboards.merch_markup)
     if message.text == 'Settings':
         users[id].state = 'notifications'
         bot.send_message(message.chat.id, texts.Notification_Button, reply_markup=keyboards.notifications_markup)
