@@ -8,12 +8,13 @@ Welcome to InnoSportChallengesBot.
 '''
 login = '''
 To register you on Innopolis Sport website, please write your Innopolis email.
+The domain should be: innopolis.university or innopolis.ru
 '''
 About_Button = f'{emoji["hi"]}Hello! \nIt is a bot with sport challenges for Innopolis University’s students.\n ' \
                f'Here you can perform sports challenges, earn SportPoints for it and exchange them for merch.'
 
 Help_Button = '''
-If you have any questions or suggestions you can write it here: @sleeepy_zzzzz 
+If you have any questions or suggestions you can write it here: @sleeepy_zzzzz
 '''
 Notification_Button = '''
 Turn the Notifications ON or OFF ?
@@ -87,3 +88,9 @@ def merch():
     for i in stores:
         array_of_items.append(f'{i}: {stores[i]}')
     return array_of_items
+
+InnoStore = '''
+You can exchange earned gems for merch from Innostore.
+1 gem = 10 pt.
+https://ipts.innopolis.university/products
+'''
