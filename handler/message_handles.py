@@ -22,14 +22,14 @@ def start_page(message: Message):
         bot.send_message(message.chat.id, texts.About_Button, reply_markup=keyboards.default_markup)
     if message.text == 'Help':
         bot.send_message(message.chat.id, texts.Help_Button, reply_markup=keyboards.default_markup)
-        bot.send_message(message.chat.id, 'Merch from the InnoStore', reply_markup=keyboards.merch_markup)
+        bot.send_message(message.chat.id, texts.InnoStore, reply_markup=keyboards.default_markup)
     if message.text == 'Settings':
         users[id].state = 'notifications'
         bot.send_message(message.chat.id, texts.Notification_Button, reply_markup=keyboards.notifications_markup)
     if message.text == 'Sign up':
         if users[id].login == '':
             users[id].state = 'authorization_login'
-            bot.send_message(message.chat.id, texts.login, reply_markup=keyboards.remove)
+            bot.send_message(message.chat.id, texts.login, reply_markup=keyboards.default_markup)
         else:
             bot.send_message(message.chat.id, texts.already_registered, reply_markup=keyboards.default_markup)
     if message.text == '/start':
@@ -53,13 +53,15 @@ def notifications_page(message: Message):
 def authorization_page_login(message: Message):
     id = message.from_user.id
     txt = message.text.lower()
-    if fullmatch('[a-z]+.[a-z]+@innopolis.university', txt):
-        users[id].state = 'authorization_password'
-        users[id].login = message.text
-        bot.send_message(message.chat.id, texts.password, reply_markup=keyboards.remove)
     if message.text == '/start':
         users[id].state = 'default'
         bot.send_message(message.chat.id, texts.greetings, reply_markup=keyboards.default_markup)
+    if fullmatch('[a-z]+.[a-z]+@innopolis.university', txt) or fullmatch('[a-z]+.[a-z]+@innopolis.ru', txt):
+        users[id].state = 'authorization_password'
+        users[id].login = message.text
+        bot.send_message(message.chat.id, texts.password, reply_markup=keyboards.default_markup)
+    else:
+        bot.send_message(message.chat.id, '''Innopolis mail should end with @innopolis.university''', reply_markup=keyboards.default_markup)
 
 @message_handler.state('authorization_password')
 def authorization_page_password(message: Message):
